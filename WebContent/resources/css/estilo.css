@@ -1,0 +1,36 @@
+.botao {
+	margin-top: 40px;
+	width: 300px;
+}
+
+.vilao {
+	float: right;
+}
+
+.heroi {
+	float: left;
+}
+
+.espaco {
+	padding-top: 80px;
+}
+
+.distancia-esquerda {
+	margin-left: 50px;
+}
+
+.distancia-direita {
+	margin-right: 50px;
+}
+
+.distanciade {
+	margin-right: 25px;
+	margin-left: 25px;
+}
+
+.corpo{
+	margin-top: 39px;
+	text-align: center;
+	align-content: center;
+	align-items: center;
+}
