@@ -104,4 +104,9 @@ public class JogoController {
 		}
 		return "paginas/loja";
 	}
+	
+	@RequestMapping("teste")
+	public String teste(){
+		return "paginas/jogoteste";
+	}
 }

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : pagina-cadastro
-    Created on : Oct 16, 2017, 4:24:58 PM
-    Author     : Arthur
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -31,7 +25,7 @@
             </div>
             <div class="form-check">
 			    <label class="form-check-label">
-			      <input type="checkbox" name="hardcore" id="hardcore" value="true" class="form-check-input">
+			      <input type="checkbox" name="hardcore" id="hardcore" class="form-check-input">
 			      Hardcore?
 			    </label>
 			 </div>

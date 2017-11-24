@@ -36,9 +36,9 @@ public class JogoDao implements IJogoDao{
 
 	@Override
 	public List<Heroi> listaHerois(Usuario usuario) {
-		Query query =  manager.createQuery("select h from Heroi h where h.login = :paramLogin");
-		query.setParameter("paramLogin", usuario.getLogin());
-		return query.getResultList();		
+		Query query =  manager.createQuery("select h from Heroi h where h.usuario = :paramUsuario");
+		query.setParameter("paramUsuario", usuario);
+		return query.getResultList();
 	}
 
 	@Override

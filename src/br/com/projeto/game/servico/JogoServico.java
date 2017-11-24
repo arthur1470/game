@@ -20,27 +20,24 @@ public class JogoServico {
 	IJogoDao dao;
 
 	public boolean validarCamposHeroi(Heroi heroi) {
-		boolean verificado = true;
-		if (heroi.getNome().equals(null) || heroi.getNomeAtaque().equals(null) || 
-				heroi.getNomeAtaque().equals(" ") || heroi.getNome().equals(" ") ||
-				heroi.getNome() == null || heroi.getNomeAtaque() == null || 
-				heroi.getNome().length() < 3 || heroi.getNome().length() > 16 ||
-				heroi.getNomeAtaque().length() < 2 || heroi.getNomeAtaque().length() > 20) {
-			verificado = false;
+		if (heroi.getNome().length() < 1 ||		 
+			heroi.getNomeAtaque().length() < 2) {
+			return false;
 		}
-		return verificado;
+		return true;
 	}
 
 	public void cadastrarHeroi(Heroi heroi, HttpSession session) {
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		heroi.setLogin(usuario.getLogin());
+		heroi.setUsuario(usuario);
 		heroi.setNivel(1);
 		heroi.setAtaque(130);
 		heroi.setVida(350);
 		heroi.setKitCura(20);
 		heroi.setAtacou(0);
 		heroi.setCurou(0);
+		heroi.setPorcentoVida(heroi.getVida());
 		dao.cadastrarHeroi(heroi);
 
 	}
@@ -85,8 +82,8 @@ public class JogoServico {
 		}
 
 		evil.setAtaque(r.nextInt(124) + 1);
-		evil.setVida(evil.getVida() - hero.getAtacou());
-		hero.setVida(hero.getVida() - evil.getAtaque());
+		evil.setPorcentoVida(evil.getPorcentoVida() - hero.getAtacou());
+		hero.setPorcentoVida(hero.getPorcentoVida() - evil.getAtaque());
 
 		session.setAttribute("hero", hero);
 		session.setAttribute("evil", evil);
@@ -105,7 +102,7 @@ public class JogoServico {
 			hero.setKitCura(hero.getKitCura() - 1);
 			hero.setCurou(r.nextInt(70) + 50);
 			hero.setLog("Usei kit de cura, agora eu tenho mais vida!");
-			hero.setVida(hero.getVida() + hero.getCurou() - evil.getAtaque());
+			hero.setPorcentoVida(hero.getPorcentoVida() + hero.getCurou() - evil.getAtaque());
 
 			session.setAttribute("hero", hero);
 			session.setAttribute("evil", evil);
@@ -139,7 +136,6 @@ public class JogoServico {
 	}
 	
 	public boolean comprarItem(Heroi heroi, int idItem, HttpSession session) {
-		boolean verificado = false;
 		heroi = (Heroi) session.getAttribute("hero");
 		
 		if(idItem == 1) {
@@ -147,7 +143,7 @@ public class JogoServico {
 				heroi.setGold(heroi.getGold() - 20);
 				heroi.setAtaque(heroi.getAtaque() + 10);
 				dao.alterarHeroi(heroi);
-				verificado = true;
+				return true;
 			}
 		}
 		
@@ -156,7 +152,7 @@ public class JogoServico {
 				heroi.setGold(heroi.getGold() - 15);
 				heroi.setVida(heroi.getVida() + 16);
 				dao.alterarHeroi(heroi);
-				verificado = true;
+				return true;
 			}
 		}
 		
@@ -165,10 +161,10 @@ public class JogoServico {
 				heroi.setGold(heroi.getGold() - 5);
 				heroi.setKitCura(heroi.getKitCura() + 2);
 				dao.alterarHeroi(heroi);				
-				verificado = true;
+				return true;
 			}
 		}
 		
-		return verificado;
+		return false;
 	}
 }

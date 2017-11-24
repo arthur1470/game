@@ -3,14 +3,16 @@ package br.com.projeto.game.modelo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Heroi {
 		
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private int id;
 	private String nome;
-	private String login;
 	private String log;
 	private int gold;
 	private int ataque;
@@ -20,9 +22,20 @@ public class Heroi {
 	private int kitCura;
 	private int atacou;
 	private int curou;
+	private int porcentoVida;
 	private boolean hardcore;
+
+	@ManyToOne
+	@JoinColumn(name="usuario_id")
+	private Usuario usuario;
 	
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public boolean isHardcore() {
 		return hardcore;
 	}
@@ -46,12 +59,6 @@ public class Heroi {
 	}
 	public void setNomeAtaque(String nomeAtaque) {
 		this.nomeAtaque = nomeAtaque;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
 	}
 	public String getNome() {
 		return nome;
@@ -100,6 +107,12 @@ public class Heroi {
 	}
 	public void setGold(int gold) {
 		this.gold = gold;
+	}
+	public int getPorcentoVida() {
+		return porcentoVida;
+	}
+	public void setPorcentoVida(int porcentoVida) {
+		this.porcentoVida = porcentoVida;
 	}
 		
 }

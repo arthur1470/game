@@ -12,6 +12,7 @@ public class Vilao {
 	private String nome;
 	private int ataque;
 	private int vida;
+	private int porcentoVida;
 	
 
 	public int getIdVilao() {
@@ -37,5 +38,11 @@ public class Vilao {
 	}
 	public void setVida(int vida) {
 		this.vida = vida;
+	}
+	public int getPorcentoVida() {
+		return porcentoVida;
+	}
+	public void setPorcentoVida(int porcentoVida) {
+		this.porcentoVida = porcentoVida;
 	}	
 }

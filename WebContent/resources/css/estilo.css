@@ -11,10 +11,6 @@
 	float: left;
 }
 
-.espaco {
-	padding-top: 80px;
-}
-
 .distancia-esquerda {
 	margin-left: 50px;
 }
@@ -33,4 +29,43 @@
 	text-align: center;
 	align-content: center;
 	align-items: center;
+}
+
+.espaco{
+  margin: 15px 30px 20px 10px;
+  text-align: center;
+  height: 390px;
+  width: 30%;
+}
+
+.vida{
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.hero{
+  position: absolute;
+  right: 65%;
+}
+.evil{
+  position: absolute;
+  left: 65%;
+}
+div.acoes{
+  position: absolute;
+  margin: 400px 40% 10px 40%;
+}
+button.acoes{
+  width: 100px;
+}
+
+div.loghero{
+  position: absolute;
+  top: 450px;
+  left: 50px;
+}
+div.logvilao{
+  position: absolute;
+  top: 450px;
+  right: 100px;
 }

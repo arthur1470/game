@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cadastro-usuario
-    Created on : Oct 19, 2017, 10:31:56 PM
-    Author     : Arthur
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -17,7 +11,7 @@
         <title>Game desenvolvido por Arthur Marques</title>
     </head>
     <body class="container">
-       <form action="cadastrar corpo" method="post">
+       <form action="cadastrar" method="post">
             <div class="form-group">
                 <label>Usuário: </label>
                 <input type="text" name="login" class="form-control" placeholder="Login" />                
